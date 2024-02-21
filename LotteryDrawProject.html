@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lottery</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: url('https://img.freepik.com/free-photo/blue-smooth-wall-textured-background_53876-106133.jpg?w=826&t=st=1708499084~exp=1708499684~hmac=73845b069072a5d742a3afad35c797ebf8826011c0156bb11797e9d1f3bf22e9'); 
+      background-size: cover;
+      background-position: center;
+    }
+    .container {
+      max-width: 600px;
+      background-color: rgba(255, 255, 255, 0.8); /* Background color with transparency */
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .title {
+      color: #007bff;
+      text-align: center;
+    }
+    .lottery-number {
+      font-size: 2em;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .modal-title {
+      color: #007bff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">Lottery</h1>
+    <br><br>
+    <h4 class="text-danger lottery-number" id="lottery"></h4>
+    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" onclick="consold()">Winners</button>
+  </div>
+
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Winner</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <h1 class="modal-title" id="modal"></h1>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var Arraylot = [
+      65774,
+      34242,
+      34134,
+      13141,
+      31241,
+      12312,
+      11414,
+      45677,
+      45455,
+      45456,
+    ];
+
+    function random() {
+      return Arraylot[Math.floor(Math.random() * Arraylot.length)];
+    }
+
+    function consold() {
+      var result = random();
+      console.log(result);
+      document.getElementById('lottery').textContent = result;
+      document.getElementById('modal').textContent = result;
+    }
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+</html>
